@@ -1,0 +1,3 @@
+[submodule "VaurenithBackend"]
+	path = VaurenithBackend
+	url = https://github.com/Shshdevs/VaurenithBackend.git
