@@ -1,0 +1,29 @@
+name: Update Web submodule
+
+on:
+  schedule:
+    - cron: "37 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+      - name: Update Web submodule
+        run: git submodule update --remote VaurenithWeb
+      - uses: peter-evans/create-pull-request@v8.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          add-paths: VaurenithWeb
+          branch: automation/update-web-submodule
+          delete-branch: true
+          title: "chore: update VaurenithWeb submodule"
+          commit-message: "chore: update VaurenithWeb submodule"
+          body: "Updates VaurenithWeb to the latest commit on its main branch."

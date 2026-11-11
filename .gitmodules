@@ -2,3 +2,8 @@
 	path = VaurenithBackend
 	url = https://github.com/Shshdevs/VaurenithBackend.git
 	branch = main
+
+[submodule "VaurenithWeb"]
+	path = VaurenithWeb
+	url = https://github.com/Shshdevs/VaurenithWeb.git
+	branch = main
