@@ -3,7 +3,12 @@
 	url = https://github.com/Shshdevs/VaurenithBackend.git
 	branch = main
 
-[submodule "VaurenithWeb"]
-	path = VaurenithWeb
-	url = https://github.com/Shshdevs/VaurenithWeb.git
+[submodule "VaurenithClient"]
+	path = VaurenithClient
+	url = https://github.com/Shshdevs/VaurenithClient.git
+	branch = main
+
+[submodule "VaurenithAuth"]
+	path = VaurenithAuth
+	url = https://github.com/Shshdevs/VaurenithAuth.git
 	branch = main
