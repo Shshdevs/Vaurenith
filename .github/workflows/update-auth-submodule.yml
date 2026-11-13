@@ -1,0 +1,29 @@
+name: Update Auth submodule
+
+on:
+  schedule:
+    - cron: "37 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-auth:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: true
+      - name: Update Auth submodule
+        run: git submodule update --remote VaurenithAuth
+      - uses: peter-evans/create-pull-request@v8.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          add-paths: VaurenithAuth
+          branch: automation/update-auth-submodule
+          delete-branch: true
+          title: "chore: update VaurenithAuth submodule"
+          commit-message: "chore: update VaurenithAuth submodule"
+          body: "Updates VaurenithAuth to the latest commit on its main branch."
